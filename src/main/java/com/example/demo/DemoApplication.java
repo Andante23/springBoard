@@ -24,6 +24,7 @@ public class DemoApplication {
     @Autowired
 	private BoardService boardService;
 
+
 	@GetMapping("/")
 	public  String BoardStart(Model model){
 		List<Board> boards = boardService.getAllPost();

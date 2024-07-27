@@ -5,22 +5,37 @@
     <title>게시판 리스트</title>
 </head>
 <body>
-<h1>게시판 리스트</h1>
+
+<!-- 게시판 헤더 -->
+<header>
+    <h1>게시판 리스트</h1>
+
+    <ul>
+        <li><a href="/board/write">글쓰기</a></li>
+    </ul>
+</header>
+
+
+
+<!-- 게시판 테이블 -->
 <table border="1">
     <thead>
     <tr>
         <th>ID</th>
         <th>Title</th>
         <th>Content</th>
+        <th>링크</th>
     </tr>
     </thead>
     <tbody>
 
-    <!-- 타임리프 반복문 -->
-    <tr th:each="board : ${boards}"> <!--  => forEach  -->
+
+    <tr th:each="board : ${boards}">
         <td th:text="${board.bo_id}">1</td>
         <td th:text="${board.bo_title}">Title</td>
         <td th:text="${board.bo_content}">Content</td>
+       <!-- 38: 게시판에서 첫번째 게시물로 이동하는 링크입니다. -->
+        <td><a th:href="@{/board/{id}(id=${board.bo_id})}">link</a></td>
     </tr>
     </tbody>
 </table>

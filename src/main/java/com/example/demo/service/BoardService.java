@@ -4,6 +4,7 @@ import com.example.demo.entity.Board;
 import com.example.demo.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.ResourceAccessException;
 
 import java.util.List;
 
@@ -24,6 +25,14 @@ public class BoardService {
 
       boardRepository.save(board);
   }
+
+
+  //=> 게시글 상세정보를 호출하는 메서드
+    public Board getDetailInfo(int id){
+
+       return boardRepository.findById(id).orElseThrow(()-> new ResourceAccessException("리소스를 발견하지 못했습니다."));
+
+    }
 
 
 }
