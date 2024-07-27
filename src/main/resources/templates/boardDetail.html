@@ -4,12 +4,26 @@
     <title>게시글 상세정보</title>
 </head>
 <body>
+
+<header>
+    <h1><a href="/">Home</a></h1>
+</header>
+
+
    <h1>게시글 상세 정보</h1>
 
-   <div class="detail_layout">
+   <article class="detail_layout">
       <h2 th:text="${board.bo_title}">Title</h2>
        <p th:text="${board.bo_content}">Content</p>
-   </div>
+   </article>
+
+    <div>
+        <a th:href="@{/board/modify/{id}(id=${board.bo_id})}">edit</a>
+    </div>
+
+<!--/board/modify/{id}-->
+
+
 
 </body>
 </html>

@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>게시판 리스트</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+
 <body>
 
-<!-- 게시판 헤더 -->
+
 <header>
     <h1>게시판 리스트</h1>
 
@@ -17,7 +19,7 @@
 
 
 
-<!-- 게시판 테이블 -->
+
 <table border="1">
     <thead>
     <tr>
@@ -25,17 +27,24 @@
         <th>Title</th>
         <th>Content</th>
         <th>링크</th>
+        <th>옵션</th>
     </tr>
     </thead>
     <tbody>
-
 
     <tr th:each="board : ${boards}">
         <td th:text="${board.bo_id}">1</td>
         <td th:text="${board.bo_title}">Title</td>
         <td th:text="${board.bo_content}">Content</td>
-       <!-- 38: 게시판에서 첫번째 게시물로 이동하는 링크입니다. -->
         <td><a th:href="@{/board/{id}(id=${board.bo_id})}">link</a></td>
+        <td>
+            <div>
+                <a th:href="@{/board/delete(id=${board.bo_id})}">delete</a>
+            </div>
+
+
+        </td>
+
     </tr>
     </tbody>
 </table>

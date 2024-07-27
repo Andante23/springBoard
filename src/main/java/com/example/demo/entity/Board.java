@@ -7,8 +7,8 @@ import jakarta.persistence.Id;
 import lombok.Data;
 
 
-@Entity //=> db의 테이블을 의미합니다.
-@Data //=> 데이터 가져오는데(=get) 용이한 어노테이션
+@Entity
+@Data
 public class Board {
 
     @Id
